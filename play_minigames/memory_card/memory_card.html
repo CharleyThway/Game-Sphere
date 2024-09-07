@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory Card Game | GameSphere</title>
+    <link rel="stylesheet" href="../../style.css" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Jaro:opsz@6..72&family=Luckiest+Guy&family=Poetsen+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      p {
+        font-size: 20px;
+      }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: #6a5f7c;
+        font-family: "Dosis", sans-serif;
+      }
+      ::selection {
+        color: #fff;
+        background: #6a5f7c;
+      }
+      .wrapper {
+        padding: 25px;
+        background: #f8f8f8;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        height: 550px;
+        width: 550px;
+      }
+      .cards,
+      .card,
+      .view,
+      .details,
+      p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .cards {
+        height: 500px;
+        width: 500px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      .cards .card {
+        cursor: pointer;
+        position: relative;
+        perspective: 1000px;
+        transform-style: preserve-3d;
+        height: calc(100% / 5 - 10px);
+        width: calc(100% / 5 - 10px);
+      }
+      .card.shake {
+        animation: shake 0.35s ease-in-out;
+      }
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        20% {
+          transform: translateX(-13px);
+        }
+        40% {
+          transform: translateX(13px);
+        }
+        60% {
+          transform: translateX(-8px);
+        }
+        80% {
+          transform: translateX(8px);
+        }
+      }
+      .cards .card .view {
+        width: 100%;
+        height: 100%;
+        user-select: none;
+        pointer-events: none;
+        position: absolute;
+        background: #fff;
+        border-radius: 7px;
+        backface-visibility: hidden;
+        transition: transform 0.25s linear;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      }
+      .card .front-view img {
+        max-width: 80%;
+      }
+      .card .back-view {
+        transform: rotateY(-180deg);
+      }
+      .card .back-view img {
+        max-width: 40px;
+      }
+      .card.flip .front-view {
+        transform: rotateY(180deg);
+      }
+      .card.flip .back-view {
+        transform: rotateY(0);
+      }
+
+      .details {
+        width: 100%;
+        margin-top: 15px;
+        padding: 0 20px;
+        border-radius: 7px;
+        background: #fff;
+        height: calc(100% / 4 - 30px);
+        justify-content: space-between;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      }
+      .details p {
+        font-size: 20px;
+        height: 17px;
+        padding-right: 18px;
+        border-right: 1px solid #ccc;
+      }
+      .details p span {
+        margin-left: 8px;
+      }
+      .details p b {
+        font-weight: 500;
+      }
+      .details button {
+        cursor: pointer;
+        font-size: 16px;
+        color: #1c1026;
+        border-radius: 4px;
+        padding: 4px 11px;
+        background: #fff;
+        border: 2px solid #1c1026;
+        transition: 0.3s ease;
+      }
+      .details button:hover {
+        color: #fff;
+        background: #1c1026;
+      }
+
+      #helpBtn {
+        position: fixed;
+        bottom: 50px;
+        right: 50px;
+        z-index: 99;
+        font-size: 24px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 10px 20px;
+        border-radius: 10px;
+      }
+
+      #rightMenu {
+        width: 400px;
+        font-size: 16px;
+      }
+
+      #backMenu {
+        position: fixed;
+        top: 40px;
+        left: 40px;
+        z-index: 99;
+        font-size: 30px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 10px 20px;
+        border-radius: 50px;
+        background-color: #dfdcdc;
+        color: #341b3a;
+        box-shadow: 10px 7px 10px rgba(149, 149, 149, 0.2);
+      }
+
+      #backMenu:hover {
+        background-color: #f7f1f0;
+        font-size: 34px;
+      }
+
+      @media screen and (max-width: 530px) {
+        .wrapper {
+          height: 350px;
+          width: 350px;
+        }
+
+        .cards .card {
+          cursor: pointer;
+          position: relative;
+          perspective: 1000px;
+          transform-style: preserve-3d;
+          height: calc(100% / 5 - 5px);
+          width: calc(100% / 5 - 5px);
+        }
+
+        .cards {
+          height: 300px;
+          width: 300px;
+        }
+
+        .card .front-view img {
+          max-width: 60%;
+        }
+        .card .back-view img {
+          max-width: 60%;
+        }
+        .details {
+          margin-top: 10px;
+          padding: 0 15px;
+          height: calc(100% / 4 - 20px);
+        }
+        .details p {
+          height: 15px;
+          font-size: 17px;
+          padding-right: 13px;
+        }
+        .details button {
+          font-size: 13px;
+          padding: 5px 10px;
+          border: none;
+          color: #fff;
+          background: #6563ff;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="backMenu">
+      <a href="../../mini_games.html"><i class="fa-solid fa-arrow-left"></i></a>
+    </div>
+    <div class="wrapper">
+      <ul class="cards">
+        <li class="card">
+          <div class="view front-view">
+            <img src="./media/question.png" alt="icon" />
+          </div>
+          <div class="view back-view">
+            <img src="./media/img-1.png" alt="card-img" />
+          </div>
+        </li>
+        <li class="card">
+          <div class="view front-view">
+            <img src="./media/question.png" alt="icon" />
+          </div>
+          <div class="view back-view">
+            <img src="./media/img-2.png" alt="card-img" />
+          </div>
+        </li>
+        <li class="card">
+          <div class="view front-view">
+            <img src="./media/question.png" alt="icon" />
+          </div>
+          <div class="view back-view">
+            <img src="./media/img-3.png" alt="card-img" />
+          </div>
+        </li>
+        <li class="card">
+          <div class="view front-view">
+            <img src="./media/question.png" alt="icon" />
+          </div>
+          <div class="view back-view">
+            <img src="./media/img-4.png" alt="card-img" />
+          </div>
+        </li>
+        <li class="card">
+          <div class="view front-view">
+            <img src="./media/question.png" alt="icon" />
+          </div>
+          <div class="view back-view">
+            <img src="./media/img-5.png" alt="card-img" />
+          </div>
+        </li>
+        <li class="card">
+          <div class="view front-view">
+            <img src="./media/question.png" alt="icon" />
+          </div>
+          <div class="view back-view">
+            <img src="./media/img-6.png" alt="card-img" />
+          </div>
+        </li>
+        <li class="card">
+          <div class="view front-view">
+            <img src="./media/question.png" alt="icon" />
+          </div>
+          <div class="view back-view">
+            <img src="./media/img-5.png" alt="card-img" />
+          </div>
+        </li>
+        <li class="card">
+          <div class="view front-view">
+            <img src="./media/question.png" alt="icon" />
+          </div>
+          <div class="view back-view">
+            <img src="./media/img-6.png" alt="card-img" />
+          </div>
+        </li>
+        <li class="card">
+          <div class="view front-view">
+            <img src="./media/question.png" alt="icon" />
+          </div>
+          <div class="view back-view">
+            <img src="./media/img-1.png" alt="card-img" />
+          </div>
+        </li>
+        <li class="card">
+          <div class="view front-view">
+            <img src="./media/question.png" alt="icon" />
+          </div>
+          <div class="view back-view">
+            <img src="./media/img-2.png" alt="card-img" />
+          </div>
+        </li>
+        <li class="card">
+          <div class="view front-view">
+            <img src="./media/question.png" alt="icon" />
+          </div>
+          <div class="view back-view">
+            <img src="./media/img-3.png" alt="card-img" />
+          </div>
+        </li>
+        <li class="card">
+          <div class="view front-view">
+            <img src="./media/question.png" alt="icon" />
+          </div>
+          <div class="view back-view">
+            <img src="./media/img-4.png" alt="card-img" />
+          </div>
+        </li>
+        <li class="card">
+          <div class="view front-view">
+            <img src="./media/question.png" alt="icon" />
+          </div>
+          <div class="view back-view">
+            <img src="./media/img-7.png" alt="card-img" />
+          </div>
+        </li>
+        <li class="card">
+          <div class="view front-view">
+            <img src="./media/question.png" alt="icon" />
+          </div>
+          <div class="view back-view">
+            <img src="./media/img-8.png" alt="card-img" />
+          </div>
+        </li>
+        <li class="card">
+          <div class="view front-view">
+            <img src="./media/question.png" alt="icon" />
+          </div>
+          <div class="view back-view">
+            <img src="./media/img-7.png" alt="card-img" />
+          </div>
+        </li>
+        <li class="card">
+          <div class="view front-view">
+            <img src="./media/question.png" alt="icon" />
+          </div>
+          <div class="view back-view">
+            <img src="./media/img-8.png" alt="card-img" />
+          </div>
+        </li>
+        <li class="card">
+          <div class="view front-view">
+            <img src="./media/question.png" alt="icon" />
+          </div>
+          <div class="view back-view">
+            <img src="./media/img-9.png" alt="card-img" />
+          </div>
+        </li>
+        <li class="card">
+          <div class="view front-view">
+            <img src="./media/question.png" alt="icon" />
+          </div>
+          <div class="view back-view">
+            <img src="./media/img-10.png" alt="card-img" />
+          </div>
+        </li>
+        <li class="card">
+          <div class="view front-view">
+            <img src="./media/question.png" alt="icon" />
+          </div>
+          <div class="view back-view">
+            <img src="./media/img-9.png" alt="card-img" />
+          </div>
+        </li>
+        <li class="card">
+          <div class="view front-view">
+            <img src="./media/question.png" alt="icon" />
+          </div>
+          <div class="view back-view">
+            <img src="./media/img-10.png" alt="card-img" />
+          </div>
+        </li>
+        <div class="details">
+          <p class="time">
+            Time: <span><b>60</b>s</span>
+          </p>
+          <p class="flips">
+            Flips: <span><b>0</b></span>
+          </p>
+          <button>Restart</button>
+        </div>
+      </ul>
+    </div>
+    <div
+      class="w3-sidebar w3-bar-block w3-card w3-animate-right w3-grey"
+      style="display: none; right: 0"
+      id="rightMenu"
+    >
+      <button
+        onclick="closeRightMenu()"
+        class="w3-bar-item w3-button w3-xlarge w3-light-grey"
+      >
+        Close &times;
+      </button>
+      <div>
+        <ul class="w3-large">
+          <li class="w3-padding">
+            - Click any two cards to reveal their images.
+          </li>
+          <li class="w3-padding">
+            - If the cards match (display the same image), they will remain face
+            up.
+          </li>
+          <li class="w3-padding">
+            - If they don't match, they flip back down after a short delay.
+          </li>
+          <li class="w3-padding">
+            - Keep selecting pairs of cards until all matches are found.
+          </li>
+          <li class="w3-padding">
+            - The game ends when all cards are matched. The number of flips and
+            time will be displayed.
+          </li>
+          <li class="w3-padding">- Click "Restart" to play again.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="w3-teal">
+      <button
+        class="w3-button w3-teal w3-xlarge w3-right w3-light-grey"
+        onclick="openRightMenu()"
+        id="helpBtn"
+      >
+        Help <i class="fa-regular fa-circle-question"></i>
+      </button>
+    </div>
+    <script>
+      function openRightMenu() {
+        document.getElementById("rightMenu").style.display = "block";
+      }
+
+      function closeRightMenu() {
+        document.getElementById("rightMenu").style.display = "none";
+      }
+    </script>
+    <script>
+      const cards = document.querySelectorAll(".card"),
+        timeTag = document.querySelector(".time b"),
+        flipsTag = document.querySelector(".flips b"),
+        refreshBtn = document.querySelector(".details button");
+
+      let maxTime = 80;
+      let timeLeft = maxTime;
+      let flips = 0;
+      let matchedCard = 0;
+      let disableDeck = false;
+      let isPlaying = false;
+      let cardOne, cardTwo, timer;
+
+      function initTimer() {
+        if (timeLeft <= 0) {
+          return clearInterval(timer);
+        }
+        timeLeft--;
+        timeTag.innerText = timeLeft;
+      }
+
+      function flipCard({ target: clickedCard }) {
+        if (!isPlaying) {
+          isPlaying = true;
+          timer = setInterval(initTimer, 1000);
+        }
+        if (clickedCard !== cardOne && !disableDeck && timeLeft > 0) {
+          flips++;
+          flipsTag.innerText = flips;
+          clickedCard.classList.add("flip");
+          if (!cardOne) {
+            return (cardOne = clickedCard);
+          }
+          cardTwo = clickedCard;
+          disableDeck = true;
+          let cardOneImg = cardOne.querySelector(".back-view img").src,
+            cardTwoImg = cardTwo.querySelector(".back-view img").src;
+          matchCards(cardOneImg, cardTwoImg);
+        }
+      }
+
+      function matchCards(img1, img2) {
+        if (img1 === img2) {
+          matchedCard++;
+          if (matchedCard == 10 && timeLeft > 0) {
+            return clearInterval(timer);
+          }
+          cardOne.removeEventListener("click", flipCard);
+          cardTwo.removeEventListener("click", flipCard);
+          cardOne = cardTwo = "";
+          return (disableDeck = false);
+        }
+
+        setTimeout(() => {
+          cardOne.classList.add("shake");
+          cardTwo.classList.add("shake");
+        }, 400);
+
+        setTimeout(() => {
+          cardOne.classList.remove("shake", "flip");
+          cardTwo.classList.remove("shake", "flip");
+          cardOne = cardTwo = "";
+          disableDeck = false;
+        }, 1200);
+      }
+
+      function shuffleCard() {
+        timeLeft = maxTime;
+        flips = matchedCard = 0;
+        cardOne = cardTwo = "";
+        clearInterval(timer);
+        timeTag.innerText = timeLeft;
+        flipsTag.innerText = flips;
+        disableDeck = isPlaying = false;
+
+        let arr = [
+          1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+        ];
+        arr.sort(() => (Math.random() > 0.5 ? 1 : -1));
+
+        cards.forEach((card, index) => {
+          card.classList.remove("flip");
+          let imgTag = card.querySelector(".back-view img");
+          setTimeout(() => {
+            imgTag.src = `./media/img-${arr[index]}.png`;
+          }, 500);
+          card.addEventListener("click", flipCard);
+        });
+      }
+
+      shuffleCard();
+
+      refreshBtn.addEventListener("click", shuffleCard);
+
+      cards.forEach((card) => {
+        card.addEventListener("click", flipCard);
+      });
+    </script>
+    <script
+      src="https://kit.fontawesome.com/2cd734e270.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

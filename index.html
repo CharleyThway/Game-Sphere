@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameSphere</title>
+    <link rel="stylesheet" href="./css/style.css" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Jaro:opsz@6..72&family=Luckiest+Guy&family=Poetsen+One&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav>
+      <div id="menubar">
+        <span style="float: left; width: 300px" id="website-name"
+          ><a href="index.html">GAME SPHERE</a></span
+        >
+        <span id="nav-links" class="topnav">
+          <a
+            class="home-link"
+            style="background: #dfdcdc; color: #1e0c16"
+            href="index.html"
+            >Home</a
+          >
+          <a href="games.html">Game Recommendations</a>
+          <a href="mini_games.html">Mini Games</a>
+          <a href="profile.html">My Profile</a>
+          <a
+            href="javascript:void(0);"
+            class="nav-icon"
+            onclick="navResponsive()"
+            >&#9776;</a
+          >
+        </span>
+      </div>
+    </nav>
+    <script>
+      function navResponsive() {
+        var x = document.getElementById("nav-links");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+    </script>
+    <div id="hero-section">
+      <div id="hero-table">
+        <table>
+          <tr>
+            <td>
+              <h1>
+                <span>W</span><span>E</span><span>L</span><span>C</span
+                ><span>O</span><span>M</span><span>E</span>&nbsp; <span>T</span
+                ><span>O</span>&nbsp; <span>G</span><span>A</span><span>M</span
+                ><span>E</span>&nbsp; <span>S</span><span>P</span><span>H</span
+                ><span>E</span><span>R</span><span>E</span><span>!</span>
+              </h1>
+              <p>
+                Embark on an epic gaming journey with us. Discover game
+                recommendations and challenge yourself with our mini-games. Dive
+                in and level up your gaming experience today!
+              </p>
+              <div style="height: 100px">
+                <div class="button-display">
+                  <a class="primary-button" href="games.html">Search Games</a>
+                </div>
+                <div class="button-display">
+                  <a class="secondary-button" href="mini_games.html"
+                    >Play Mini-Games</a
+                  >
+                </div>
+              </div>
+            </td>
+            <td id="gamepad-container">
+              <img id="gamepad" src="./media/gamepad.png" alt="gamepad" />
+              <img id="gamepad-shadow" src="./media/gamepad_shadow.png" />
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="popular-games">
+      <h2>Popular games in 2024</h2>
+      <hr class="header-underline" />
+      <div id="pop-container"></div>
+      <a class="primary1-button" id="pop-search" href="games.html"
+        >Search More</a
+      >
+    </div>
+
+    <footer>
+      <table>
+        <tr>
+          <td>
+            <a href="https://www.instagram.com" target="_blank"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+          </td>
+          <td>
+            <a href="https://www.facebook.com" target="_blank"
+              ><i class="fa-brands fa-facebook-f"></i
+            ></a>
+          </td>
+          <td>
+            <a href="https://www.linkedin.com" target="_blank"
+              ><i class="fa-brands fa-linkedin-in"></i
+            ></a>
+          </td>
+          <td>
+            <a href="mailto:chitsuthway40@gmail.com" target="_blank"
+              ><i class="fa-regular fa-envelope"></i
+            ></a>
+          </td>
+        </tr>
+      </table>
+      <table id="footer-links">
+        <tr>
+          <td><a class="footer-link" href="index.html">Home</a></td>
+          <td><a class="footer-link" href="games.html">Games</a></td>
+          <td><a class="footer-link" href="mini_games.html">Minigames</a></td>
+          <td><a class="footer-link" href="profile.html">My Profile</a></td>
+        </tr>
+      </table>
+      <p>Pusan National University</p>
+    </footer>
+
+    <script
+      src="https://kit.fontawesome.com/2cd734e270.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./javascript/index.js"></script>
+  </body>
+</html>

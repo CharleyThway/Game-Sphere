@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Baseball Game | GameSphere</title>
+    <script
+      src="https://kit.fontawesome.com/eff9638d9a.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Silkscreen:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Jaro:opsz@6..72&family=Luckiest+Guy&family=Poetsen+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="../css/style.css" type="text/css" />
+    <style>
+      body {
+        background: #6a5f7c;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        min-height: 100vh;
+        font-family: "Dosis", sans-serif;
+      }
+
+      .box {
+        padding: 25px;
+        background: #f8f8f8;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        height: 550px;
+        width: 550px;
+      }
+      h2 {
+        font-family: "Jersey 10", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        font-size: xx-large;
+        color: black;
+        text-align: left;
+      }
+      h3 {
+        font-family: "Poetsen One", sans-serif;
+      }
+
+      button {
+        font-size: 18px;
+      }
+      #inputnumber {
+        width: 300px;
+        height: 50px;
+        border: 3px solid #4a3e5e;
+        border-radius: 5px;
+        font-size: 18px;
+        padding: 10px;
+      }
+      #check {
+        width: 80px;
+        height: 50px;
+        border: 3px solid #4a3e5e;
+        border-radius: 5px;
+      }
+      .reset {
+        width: 80px;
+        height: 50px;
+        border: 3px solid #4a3e5e;
+        border-radius: 5px;
+      }
+      #helpBtn {
+        position: fixed;
+        bottom: 50px;
+        right: 50px;
+        z-index: 99;
+        font-size: 24px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 10px 20px;
+        border-radius: 10px;
+      }
+
+      #rightMenu {
+        width: 400px;
+        font-size: 16px;
+      }
+
+      #backMenu {
+        position: fixed;
+        top: 40px;
+        left: 40px;
+        z-index: 99;
+        font-size: 30px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 10px 20px;
+        border-radius: 50px;
+        background-color: #dfdcdc;
+        color: #341b3a;
+        box-shadow: 10px 7px 10px rgba(149, 149, 149, 0.2);
+      }
+
+      #backMenu:hover {
+        background-color: #f7f1f0;
+        font-size: 34px;
+      }
+      li {
+        list-style-type: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="backMenu">
+      <a href="../mini_games.html"><i class="fa-solid fa-arrow-left"></i></a>
+    </div>
+    <div class="box">
+      <form>
+        <h2 style="font-family: 'Jersey 10', sans-serif; font-size: xx-large">
+          Enter the number 4 numbers. You have 9 chances left.
+        </h2>
+
+        <input id="inputnumber" type="text" maxlength="4" placeholder="Enter" />
+        <button id="check">check</button>
+        <button class="reset">restart</button>
+      </form>
+    </div>
+
+    <div
+      class="w3-sidebar w3-bar-block w3-card w3-animate-right w3-grey"
+      style="display: none; right: 0"
+      id="rightMenu"
+    >
+      <button
+        onclick="closeRightMenu()"
+        class="w3-bar-item w3-button w3-xlarge w3-light-grey"
+      >
+        Close &times;
+      </button>
+      <div>
+        <ul class="w3-large">
+          <li class="w3-padding">
+            - Computer thinks of a random number. This number typically consists
+            of different digits ranging from 0 to 9, and digits must not be
+            repeated.
+          </li>
+          <li class="w3-padding">
+            - Player guesse a number and communicates it to the computer. For
+            example, they might say "1234," indicating a four-digit number. up.
+          </li>
+          <li class="w3-padding">
+            - The computer provides feedback on the guessed number. Feedback is
+            divided into two parts.
+          </li>
+          <li class="w3-padding">
+            1."Strikes" indicating the number of digits that are correct and in
+            the right position.
+          </li>
+          <li class="w3-padding">
+            2."Balls" indicating the number of digits that are correct but in
+            the wrong position.
+          </li>
+          <li class="w3-padding">
+            - If you get it right at number 9, the game is over, and if you want
+            to do more, press the 'Restart' button.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="w3-teal">
+      <button
+        class="w3-button w3-teal w3-xlarge w3-right w3-light-grey"
+        onclick="openRightMenu()"
+        id="helpBtn"
+      >
+        Help <i class="fa-regular fa-circle-question"></i>
+      </button>
+    </div>
+    <script>
+      function openRightMenu() {
+        document.getElementById("rightMenu").style.display = "block";
+      }
+
+      function closeRightMenu() {
+        document.getElementById("rightMenu").style.display = "none";
+      }
+    </script>
+    <script>
+      var h2 = document.querySelector("h2");
+      var h3 = document.querySelector("h3");
+      var form = document.querySelector("form");
+
+      var input = form.querySelector("input");
+      var resetBtn = form.querySelector(".reset");
+
+      var numArray;
+      var randomArray;
+      var count;
+      var chance;
+
+      function getNumber() {
+        numArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        randomArray = [];
+        count = 0;
+        chance = 9;
+        for (var i = 0; i < 4; i++) {
+          var randomNum = numArray.splice(
+            Math.floor(Math.random() * (9 - i)),
+            1
+          )[0];
+          randomArray.push(randomNum);
+        }
+      }
+
+      getNumber();
+      // console.log(randomArray);
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var array = input.value;
+        count++;
+        chance--;
+
+        if (array === randomArray.join("")) {
+          h2.innerText = "Correct!";
+          input.value = "";
+
+          input.focus;
+
+          getNumber();
+        } else {
+          var answerArray = array.split("");
+
+          var strike = 0;
+          var ball = 0;
+
+          for (var i = 0; i < 4; i++) {
+            if (Number(answerArray[i]) === randomArray[i]) {
+              strike++;
+            } else if (randomArray.indexOf(Number(answerArray[i])) > -1) {
+              ball++;
+            }
+          }
+
+          if (count > 8) {
+            h3.innerText = `Chance is over. Correct answer is ${randomArray}.`;
+
+            input.value = "";
+
+            input.focus;
+
+            getNumber();
+          } else {
+            h2.innerText = `${strike}Strike , ${ball}Ball. Only ${chance} chance(s) are left.`;
+            input.value = "";
+            input.focus;
+            console.log(chance);
+          }
+        }
+      });
+
+      function reset() {
+        numArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        randomArray = [];
+        for (var i = 0; i < 4; i++) {
+          var randomNum = numArray.splice(
+            Math.floor(Math.random() * (9 - i)),
+            1
+          )[0];
+          randomArray.push(randomNum);
+        }
+        h2.innerText = "Enter the number 4 numbers. You have 9 chances left.";
+        console.log(randomArray);
+      }
+
+      resetBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        reset();
+        input.value = "";
+        input.focus();
+        count = 0;
+        chance = 9;
+      });
+    </script>
+  </body>
+</html>

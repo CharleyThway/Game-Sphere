@@ -1,0 +1,579 @@
+:root {
+  --heading-font: "Poetsen One", sans-serif;
+  --basic-font: "Dosis", sans-serif;
+}
+body {
+  margin: 0;
+  font-family: var(--basic-font);
+}
+
+.primary-button {
+  width: 150px;
+  font-size: 20px;
+  font-family: var(--basic-font);
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 0;
+  background-color: #131335;
+  color: white;
+  box-shadow: 10px 7px 10px rgba(0, 0, 0, 0.2);
+  margin: 10px;
+  transition: all 200ms ease;
+  border: 2px solid #131335;
+  width: 150px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.primary-button:hover {
+  background: #2e2e5c;
+  border-color: #2e2e5c;
+  padding: 11px 21px;
+  color: white;
+  cursor: pointer;
+}
+
+.primary1-button {
+  width: 150px;
+  font-size: 20px;
+  font-family: var(--basic-font);
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 0;
+  background-color: #dfdcdc;
+  color: black;
+  box-shadow: 10px 7px 10px rgba(149, 149, 149, 0.2);
+  margin: 10px;
+  transition: all 200ms ease;
+  border: 2px solid #dfdcdc;
+  width: 150px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.primary1-button:hover {
+  background: #adacac;
+  border-color: #adacac;
+  padding: 11px 21px;
+  color: black;
+  cursor: pointer;
+}
+
+.secondary-button {
+  width: 150px;
+  font-size: 20px;
+  font-family: "Dosis", sans-serif;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 2px solid #131335;
+  box-shadow: 10px;
+  background-color: white;
+  color: #131335;
+  box-shadow: 10px 7px 10px rgba(0, 0, 0, 0.2);
+  margin: 10px;
+  transition: all 100ms ease;
+  width: 150px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.secondary-button:hover {
+  background: #2e2e5c;
+  border-color: #2e2e5c;
+  padding: 11px 21px;
+  color: white;
+  cursor: pointer;
+}
+
+/* ____________ navigation bar _________________ */
+
+nav {
+  overflow: hidden;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background: #341b3a;
+  z-index: 1;
+  padding: 15px;
+  margin: 0;
+}
+#menubar {
+  list-style-type: none;
+  margin: 0;
+  padding: 5px;
+}
+
+#menubar #nav-links {
+  float: right;
+}
+
+#website-name {
+  font-family: "Jaro", sans-serif;
+
+  font-size: 40px;
+  display: block;
+  text-align: center;
+  padding: 0 16px;
+}
+
+#website-name a {
+  text-decoration: none;
+  color: #dfdcdc;
+}
+
+#nav-links a {
+  display: inline-block;
+  text-align: center;
+  padding: 10px;
+  color: #fff2e5;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 900;
+  margin: 0 13px;
+}
+
+#nav-links a:hover {
+  background: #dfdcdc;
+  color: #341b3a;
+}
+
+#nav-links .nav-icon {
+  display: none;
+}
+
+/* ____________ hero section _________________ */
+
+#hero-section {
+  background-color: #dfdcdc;
+  height: auto;
+  padding: 50px 70px;
+}
+
+#hero-table td {
+  padding: 30px;
+}
+
+#hero-section h1 {
+  font-size: 70px;
+  font-family: "Luckiest Guy", cursive;
+  font-weight: 300;
+  color: #131335;
+}
+
+#hero-section h1 > span:hover {
+  position: relative;
+  bottom: 15px;
+}
+
+#hero-section p {
+  font-size: 20px;
+}
+
+#hero-section .button-display {
+  display: inline-block;
+  width: 230px;
+  margin: 20px 0;
+}
+
+#gamepad {
+  padding: 0 30px;
+  height: 450px;
+  width: 450px;
+  animation-name: gamepad;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+  position: relative;
+}
+
+@keyframes gamepad {
+  0% {
+    top: 0px;
+  }
+  50% {
+    top: 20px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+
+#gamepad-shadow {
+  height: 66px;
+  width: 450px;
+  padding: 0 30px;
+}
+
+/* ____________ Search for games _________________ */
+
+#popular-games {
+  background-color: #040514;
+  margin: 0;
+  padding: 50px 70px;
+  height: auto;
+}
+h2 {
+  font-size: 46px;
+  font-family: var(--heading-font);
+  margin: 0;
+  color: #dfdcdc;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.header-underline {
+  border: 6px solid #4c224f;
+  border-radius: 5px;
+  width: 80%;
+}
+
+#pop-container {
+  padding: 20px 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.pop-box {
+  background: #8c747c;
+  width: 250px;
+  border-radius: 30px;
+  box-shadow: 10px 10px 14px rgba(149, 149, 149, 0.2);
+  margin: 25px;
+  color: white;
+  height: 380px;
+}
+
+.pop-box:hover {
+  position: relative;
+  bottom: 10px;
+  right: 5px;
+  transition: all 100ms ease;
+}
+
+.pop-img {
+  height: 170px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 30px 30px 0 0;
+}
+
+.pop-info h3 {
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+#pop-search {
+  display: block;
+  margin: auto;
+}
+
+.pop-info {
+  padding: 15px;
+}
+
+.pop-data {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px 0;
+}
+
+.pop-result {
+  font-weight: 300;
+}
+
+/* ____________ footer _________________ */
+
+footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #341b3a;
+  color: white;
+  text-align: center;
+  margin: 0;
+}
+
+footer table {
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+footer i {
+  width: 30px;
+  height: 30px;
+  padding: 15px;
+  text-align: center;
+  background: #dfdcdc;
+  margin: 3px;
+  font-size: 24px;
+  border-radius: 100px;
+  color: black;
+}
+
+#footer-links td {
+  width: 150px;
+}
+
+.footer-link {
+  color: white;
+  text-decoration: underline;
+  font-size: 20px;
+  text-align: center;
+  font-weight: 900;
+}
+
+footer p {
+  margin: 0;
+  padding: 10px;
+  font-size: 20px;
+  color: white;
+}
+
+@media only screen and (max-width: 1200px) {
+  #gamepad {
+    padding: 0 10px;
+    height: 400px;
+    width: 400px;
+  }
+
+  #gamepad-shadow {
+    height: 55px;
+    width: 400px;
+    padding: 0 10px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .primary-button,
+  .primary1-button,
+  .secondary-button {
+    font-size: 18px;
+    padding: 7px 15px;
+    margin: 10px;
+  }
+
+  .primary-button:hover,
+  .primary1-button:hover,
+  .secondary-button:hover {
+    padding: 8px 16px;
+  }
+  /* ____________ navigation bar _________________ */
+
+  nav {
+    padding: 15px 0;
+  }
+  #menubar {
+    padding: 0;
+  }
+
+  #website-name {
+    padding: 0;
+  }
+
+  #nav-links a {
+    margin: 0;
+    font-size: 16px;
+  }
+
+  /* ____________ hero section _________________ */
+
+  #hero-section {
+    padding: 20px 20px 50px 20px;
+  }
+
+  #hero-table td {
+    padding: 0;
+  }
+
+  #hero-section h1 {
+    font-size: 56px;
+  }
+
+  #hero-section h1 > span:hover {
+    position: relative;
+    bottom: 15px;
+  }
+
+  #hero-section p {
+    font-size: 18px;
+  }
+
+  #hero-section .button-display {
+    display: inline-block;
+    width: 230px;
+    margin: 20px 0;
+  }
+
+  #gamepad {
+    padding: 0 10px;
+    height: 300px;
+    width: 300px;
+  }
+
+  #gamepad-shadow {
+    height: 50px;
+    width: 300px;
+    padding: 0 10px;
+  }
+
+  /* ____________ Search for games _________________ */
+
+  #popular-games {
+    background-color: #040514;
+    margin: 0;
+    padding: 50px 70px;
+    height: auto;
+  }
+  h2 {
+    font-size: 42px;
+  }
+
+  .header-underline {
+    border: 5px solid #4c224f;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #nav-links a:not(:first-child):not(.nav-icon) {
+    display: none;
+  }
+  #nav-links a.nav-icon {
+    float: right;
+    display: block;
+    background: #dfdcdc;
+    color: #341b3a;
+  }
+  #nav-links.responsive a:not(.nav-icon) {
+    display: block;
+    text-align: left;
+  }
+  #nav-links.responsive a.nav-icon {
+    display: inline-block;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .primary-button,
+  .primary1-button,
+  .secondary-button {
+    font-size: 18px;
+    padding: 7px 15px;
+    margin: 10px;
+  }
+
+  .primary-button:hover,
+  .primary1-button:hover,
+  .secondary-button:hover {
+    padding: 8px 16px;
+  }
+
+  /* ____________ navigation bar _________________ */
+
+  #website-name {
+    font-family: "Jaro", sans-serif;
+    color: #dfdcdc;
+    font-size: 40px;
+    display: block;
+    text-align: left;
+    padding: 5px 5px 15px 5px;
+  }
+
+  #menubar #nav-links {
+    float: left;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  #nav-links a {
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    color: #fff2e5;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 900;
+  }
+
+  #nav-links a:hover {
+    background: #dfdcdc;
+    color: #341b3a;
+  }
+
+  /* ____________ hero section _________________ */
+
+  #hero-section {
+    background-color: #dfdcdc;
+    height: auto;
+    padding: 30px 10px 50px 10px;
+    text-align: justify;
+  }
+
+  #hero-table td {
+    padding: 5px;
+  }
+
+  #hero-section h1 {
+    font-size: 50px;
+    text-align: left;
+  }
+
+  #hero-section p {
+    font-size: 18px;
+  }
+
+  #gamepad-container {
+    display: none;
+  }
+
+  /* ____________ Search for games _________________ */
+
+  #popular-games {
+    padding: 30px 10px;
+    height: auto;
+  }
+  h2 {
+    font-size: 36px;
+    padding: 20px 10px;
+  }
+
+  #pop-container {
+    padding: 20px 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+
+  .pop-box {
+    margin: 20px;
+  }
+  .header-underline {
+    border: 4px solid #4c224f;
+  }
+
+  /* ____________ footer _________________ */
+
+  footer i {
+    width: 25px;
+    height: 25px;
+    padding: 10px;
+    font-size: 20px;
+  }
+
+  #footer-links td {
+    width: 25%;
+  }
+
+  .footer-link {
+    font-size: 18px;
+  }
+
+  footer p {
+    margin: 0;
+    padding: 10px;
+    font-size: 20px;
+    color: white;
+  }
+}

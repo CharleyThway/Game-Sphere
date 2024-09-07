@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Profile | GameSphere</title>
+    <link rel="stylesheet" href="./css/style.css" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Jaro:opsz@6..72&family=Luckiest+Guy&family=Poetsen+One&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      h1 {
+        font-family: "Poetsen One", sans-serif;        
+        text-align: center;               
+      }
+
+      h2 {
+      font-size: 24px;
+      color: black;
+      }
+
+      #bar {
+        border: 2px solid #5d446c;
+      }
+
+      .name {
+        display: inline-block;
+      }
+      .name-intro{
+        display: block;
+      }
+
+      .center-box {
+        display: inline-block;
+        width: 230px;
+        height: auto;
+        box-shadow: 5px 5px 20px #cecece;
+        border-radius: 5px;
+      }
+      .intelligence-graph, .accuracy-graph, .agility-graph, .creativity-graph {
+        background-color: #f1f1f1;  /* 그래프의 배경색 */
+        border-radius: 5px;  /* 둥근 모서리 */
+        margin-bottom: 20px;  /* 그래프 간 간격 */
+      }
+
+      .graph {
+        text-align: right;  /* 텍스트를 오른쪽 정렬 */
+        padding: 10px;  /* 내부 여백 */
+        color: white;  /* 텍스트 색상 */
+        border-radius: 5px;  /* 둥근 모서리 */
+      }
+
+      .intelligence-graph .graph {
+        background-color: #FFD0EC;  /* 그래프 색상 (초록) */
+      }
+
+      .accuracy-graph .graph {
+        background-color: #1F2544;  /* 래프 색상 (파랑) */
+      }
+
+      .agility-graph .graph {
+        background-color: #81689D;  /* 그래프 색상 (노랑) */
+      }
+
+      .creativity-graph .graph {
+        background-color: #474F7A;  /* 그래프 색상 (주황) */
+      }
+      .right-box {display: inline-block;
+        width: 800px;
+        box-shadow: 5px 5px 20px #cecece;
+        border-radius: 5px;
+        margin: 3%;
+        }
+      .container { 
+        margin: 10px auto;
+      }
+         
+      .skills {font-size: 20px;}
+
+      .right-box {
+        display: inline-block;
+        text-align: left;
+        vertical-align: top;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div id="menubar">
+        <span style="float: left; width: 300px" id="website-name"
+          ><a href="index.html">GAME SPHERE</a></span
+        >
+        <span id="nav-links" class="topnav">
+          <a class="home-link" href="index.html">Home</a>
+          <a href="games.html">Game Recommendations</a>
+          <a href="mini_games.html">Mini Games</a>
+          <a style="background: #dfdcdc; color: #1e0c16" href="profile.html"
+            >My Profile</a
+          >
+          <a
+            href="javascript:void(0);"
+            class="nav-icon"
+            onclick="navResponsive()"
+            >&#9776;</a
+          >
+        </span>
+      </div>
+    </nav>
+    <script>
+      function navResponsive() {
+        var x = document.getElementById("nav-links");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+    </script>
+    <h1>My Profile</h1>
+    <hr id="bar">
+    <center>
+    <div class="container">
+    <div class=center-box>
+      <div class="name">
+        <img src="./media/profileimage.png" style="float:center; width: 150px; height: 150px;" alt="your profile image"><br>
+        <h2>Jane John Doe</h2>
+      </div>
+      <hr>
+
+      <div class="name-intro">
+          <!-- <p><i class="fa-solid fa-gamepad"></i>&ensp;Sudoku game</p> -->
+          <p><i class="fa-solid fa-turn-up"></i>&ensp;Level 47</p>
+          <p><i class="fa-solid fa-envelope"></i>&ensp;pnustu1234@email.com</p>
+          <p><i class="fa-regular fa-id-card"></i>&ensp;playwithme123</p>
+      </div>
+      <br>
+    </div>
+    <div class="right-box">
+      <div class="stick-graph">
+        <p class="skills"><b><i class="fa-solid fa-rocket"></i>Skills</b></p>
+          <p>Intelligence</p>
+          <div class="intelligence-graph">
+            <div class="graph" style="width:80%">80%</div>
+          </div>
+          <p>Accuracy</p>
+          <div class="accuracy-graph">
+            <div class="graph" style="width:90%">90%</div>
+            </div>
+          </div>
+          <p>Agility</p>
+          <div class="agility-graph">
+            <div class="graph" style="width:75%">75%</div>
+          </div>
+          <p>Creativity</p>
+          <div class="creativity-graph">
+            <div class="graph" style="width:50%">50%</div>
+          </div>
+          <br>
+      </div>
+    </div>
+    </div>
+    </center>
+    <footer>
+      <table>
+        <tr>
+          <td>
+            <a href="https://www.instagram.com" target="_blank"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+          </td>
+          <td>
+            <a href="https://www.facebook.com" target="_blank"
+              ><i class="fa-brands fa-facebook-f"></i
+            ></a>
+          </td>
+          <td>
+            <a href="https://www.linkedin.com" target="_blank"
+              ><i class="fa-brands fa-linkedin-in"></i
+            ></a>
+          </td>
+          <td>
+            <a href="mailto:chitsuthway40@gmail.com" target="_blank"
+              ><i class="fa-regular fa-envelope"></i
+            ></a>
+          </td>
+        </tr>
+      </table>
+      <table id="footer-links">
+        <tr>
+          <td><a class="footer-link" href="index.html">Home</a></td>
+          <td><a class="footer-link" href="games.html">Games</a></td>
+          <td><a class="footer-link" href="mini_games.html">Minigames</a></td>
+          <td><a class="footer-link" href="profile.html">My Profile</a></td>
+        </tr>
+      </table>
+      <p>Pusan National University</p>
+    </footer>
+
+    <script
+      src="https://kit.fontawesome.com/2cd734e270.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

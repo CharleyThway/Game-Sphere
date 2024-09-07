@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Games | GameSphere</title>
+    <link rel="stylesheet" href="./css/style.css" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Jaro:opsz@6..72&family=Luckiest+Guy&family=Poetsen+One&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .minigame-box {
+        padding: 20px;
+        border-radius: 20px;
+        border: 5px solid #131335;
+        height: 200px;
+        width: 700px;
+        margin: 30px;
+        background-color: #dfdcdc;
+        align-items: center;
+        display: flex;
+        box-shadow: 10px 7px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .minigame-box img {
+        width: 150px;
+        height: 150px;
+        margin: 10px;
+        padding: 20px;
+        background-color: #c6bbb9;
+      }
+
+      .minigame-info {
+        text-align: left;
+        margin: 0 20px;
+      }
+
+      .minigame-info h2 {
+        color: #131335;
+        font-size: 34px;
+        text-align: left;
+      }
+
+      .minigame-info p {
+        font-size: 18px;
+        margin: 5px 0;
+      }
+
+      .minigame-info hr {
+        margin: 10px 0;
+        border: 2px solid #131335;
+      }
+
+      .play-button {
+        display: inline-block;
+        text-decoration: none;
+        font-size: 18px;
+        border: 2px solid #131335;
+        padding: 10px 20px;
+        border-radius: 10px;
+        margin: 10px;
+        transition: all 200ms ease;
+        background-color: #131335;
+        color: white;
+      }
+
+      .play-button:hover {
+        background: #2e2e5c;
+        border-color: #2e2e5c;
+        color: white;
+      }
+
+      .play-button i {
+        padding: 0 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div id="menubar">
+        <span style="float: left; width: 300px" id="website-name"
+          ><a href="index.html">GAME SPHERE</a></span
+        >
+        <span id="nav-links" class="topnav">
+          <a class="home-link" href="index.html">Home</a>
+          <a href="games.html">Game Recommendations</a>
+          <a style="background: #dfdcdc; color: #1e0c16" href="mini_games.html"
+            >Mini Games</a
+          >
+          <a href="profile.html">My Profile</a>
+          <a
+            href="javascript:void(0);"
+            class="nav-icon"
+            onclick="navResponsive()"
+            >&#9776;</a
+          >
+        </span>
+      </div>
+    </nav>
+    <script>
+      function navResponsive() {
+        var x = document.getElementById("nav-links");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+    </script>
+    <center>
+      <div>
+        <div class="minigame-box">
+          <div>
+            <img src="./media/baseball.png" />
+          </div>
+          <div class="minigame-info">
+            <h2>Number Baseball Game</h2>
+            <p>
+              The Number Baseball Game is an exciting logic and deduction game
+              where players try to guess a secret number combination set by the
+              computer. Each guess provides feedback to help the player narrow
+              down the possibilities and find the correct answer.
+            </p>
+            <hr />
+            <a class="play-button" href="./play_minigames/baseball.html"
+              ><i class="fa-solid fa-play"></i> Play Now</a
+            >
+          </div>
+        </div>
+        <div class="minigame-box">
+          <div>
+            <img src="./media/memory_card.png" />
+          </div>
+          <div class="minigame-info">
+            <h2>Memory Card Game</h2>
+            <p>
+              The memory card game is a fun and challenging activity where
+              players flip over pairs of cards, aiming to match identical images
+              or patterns by remembering their positions.
+            </p>
+            <hr />
+            <a
+              class="play-button"
+              href="./play_minigames/memory_card/memory_card.html"
+              ><i class="fa-solid fa-play"></i> Play Now</a
+            >
+          </div>
+        </div>
+        <div class="minigame-box">
+          <div>
+            <img src="./media/snake.png" />
+          </div>
+          <div class="minigame-info">
+            <h2>Snake Game</h2>
+            <p>
+              The Snake game is a classic arcade game where players control a
+              growing snake to collect food while avoiding collisions with the
+              walls and its own tail.
+            </p>
+            <hr />
+            <a class="play-button" href="./play_minigames/snake.html"
+              ><i class="fa-solid fa-play"></i> Play Now</a
+            >
+          </div>
+        </div>
+      </div>
+    </center>
+    <footer>
+      <table>
+        <tr>
+          <td>
+            <a href="https://www.instagram.com" target="_blank"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+          </td>
+          <td>
+            <a href="https://www.facebook.com" target="_blank"
+              ><i class="fa-brands fa-facebook-f"></i
+            ></a>
+          </td>
+          <td>
+            <a href="https://www.linkedin.com" target="_blank"
+              ><i class="fa-brands fa-linkedin-in"></i
+            ></a>
+          </td>
+          <td>
+            <a href="mailto:chitsuthway40@gmail.com" target="_blank"
+              ><i class="fa-regular fa-envelope"></i
+            ></a>
+          </td>
+        </tr>
+      </table>
+      <table id="footer-links">
+        <tr>
+          <td><a class="footer-link" href="index.html">Home</a></td>
+          <td><a class="footer-link" href="games.html">Games</a></td>
+          <td><a class="footer-link" href="mini_games.html">Minigames</a></td>
+          <td><a class="footer-link" href="profile.html">My Profile</a></td>
+        </tr>
+      </table>
+      <p>Pusan National University</p>
+    </footer>
+
+    <script
+      src="https://kit.fontawesome.com/2cd734e270.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
